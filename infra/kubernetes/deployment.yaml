@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: atc-application 
+spec:
+  replicas: 2 
+  selector:
+    matchLabels:
+      app: atc-application
+  template:
+    metadata:
+      labels:
+        app: atc-application
+    spec:
+      containers:
+      - name: atc-application 
+        image: ecr-repository-uri/atc-application:latest
+        resources: 
+          requests:
+            cpu: "500m" 
+            memory: "256Mi"
+          limits:
+            cpu: "1000m"
+            memory: "512Mi"
+        ports:
+        - containerPort: 80

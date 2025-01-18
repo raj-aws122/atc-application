@@ -1,0 +1,13 @@
+groups:
+- name: example
+  rules:
+  - alert: NodeCPUOverload
+    expr: node_cpu_seconds_total{mode="idle"} / node_cpu_seconds_total < 0.2
+    for: 5m
+    labels:
+      severity: warning
+  - alert: NodeMemoryPressure
+    expr: node_memory_MemFree_bytes / node_memory_MemTotal_bytes < 0.1
+    for: 5m
+    labels:
+      severity: warning
