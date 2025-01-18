@@ -3,10 +3,11 @@
 
 This guide outlines the steps to deploy a simple static web application in a Kubernetes cluster provisioned on AWS.
 
-**Project Structure:**
+Project Structure:
 
 ```
-.
+
+```
 ├── infrastructure/
 │   ├── terraform/ 
 │       ├── main.tf 
