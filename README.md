@@ -1,7 +1,3 @@
-Certainly! Here's a simplified README.md for deploying a web application on AWS using Kubernetes with the focus on code contents:
-
-README.md
-
 Deploying a Web Application with Kubernetes on AWS
 This guide outlines the steps to deploy a simple static web application in a Kubernetes cluster provisioned on AWS.
 
