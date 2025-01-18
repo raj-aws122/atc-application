@@ -1,8 +1,11 @@
-Deploying a Web Application with Kubernetes on AWS
+```
+# Deploying a Web Application with Kubernetes on AWS
+
 This guide outlines the steps to deploy a simple static web application in a Kubernetes cluster provisioned on AWS.
 
-Project Structure:
+**Project Structure:**
 
+```
 .
 ├── infrastructure/
 │   ├── terraform/ 
@@ -17,48 +20,51 @@ Project Structure:
 │   ├── Dockerfile 
 │   └── app/ 
 │       └── index.html 
-Code Contents:
+```
 
-infrastructure/terraform/
+**Code Contents:**
 
-main.tf:
-Provisions AWS resources using Terraform:
-Creates an EKS cluster.
-Creates IAM roles for EKS and node instances.
-Creates an EKS node group.
-variables.tf:
-Defines variables for AWS region and VPC ID.
-outputs.tf:
-Outputs the EKS cluster endpoint and CA certificate.
-infrastructure/kubernetes/
+*   **infrastructure/terraform/**
+    *   *`main.tf`*: 
+        *   Provisions AWS resources using Terraform:
+            *   Creates an EKS cluster.
+            *   Creates IAM roles for EKS and node instances.
+            *   Creates an EKS node group.
+    *   *`variables.tf`*: 
+        *   Defines variables for AWS region and VPC ID.
+    *   *`outputs.tf`*: 
+        *   Outputs the EKS cluster endpoint and CA certificate.
 
-deployment.yaml:
-Defines a Kubernetes Deployment for the web application.
-Specifies the Docker image, replicas, and resource limits.
-service.yaml:
-Defines a Kubernetes Service to expose the application.
-ingress.yaml:
-Defines an Ingress to route traffic to the application service.
+*   **infrastructure/kubernetes/**
+    *   *`deployment.yaml`*: 
+        *   Defines a Kubernetes Deployment for the web application.
+        *   Specifies the Docker image, replicas, and resource limits.
+    *   *`service.yaml`*: 
+        *   Defines a Kubernetes Service to expose the application.
+    *   *`ingress.yaml`*: 
+        *   Defines an Ingress to route traffic to the application service.
 
-docker/
-Dockerfile:
-Builds a Docker image for the web application.
-app/index.html:
-Contains the static HTML content for the web application.
-Deployment Steps:
+*   **docker/**
+    *   *`Dockerfile`*: 
+        *   Builds a Docker image for the web application.
+    *   *`app/index.html`*: 
+        *   Contains the static HTML content for the web application.
 
-Build and Push Docker Image:
+**Deployment Steps:**
 
-Build the Docker image using the Dockerfile.
-Push the image to an ECR repository.
-Apply Terraform:
+1.  **Build and Push Docker Image:**
+    *   Build the Docker image using the `Dockerfile`.
+    *   Push the image to an ECR repository.
 
-Initialize Terraform: terraform init
-Plan the infrastructure: terraform plan
-Apply the infrastructure: terraform apply
-Deploy Kubernetes Resources:
+2.  **Apply Terraform:**
+    *   Initialize Terraform: `terraform init`
+    *   Plan the infrastructure: `terraform plan`
+    *   Apply the infrastructure: `terraform apply`
 
-Apply the Kubernetes deployment, service, and ingress files:
-kubectl apply -f infrastructure/kubernetes/deployment.yaml
-kubectl apply -f infrastructure/kubernetes/service.yaml
-kubectl apply -f infrastructure/kubernetes/ingress.yaml
+3.  **Deploy Kubernetes Resources:**
+    *   Apply the Kubernetes deployment, service, and ingress files:
+        *   `kubectl apply -f infrastructure/kubernetes/deployment.yaml`
+        *   `kubectl apply -f infrastructure/kubernetes/service.yaml`
+        *   `kubectl apply -f infrastructure/kubernetes/ingress.yaml`
+
+```
